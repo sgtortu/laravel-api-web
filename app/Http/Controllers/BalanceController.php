@@ -37,12 +37,12 @@ class BalanceController extends Controller
         }
         $total = $totalIngreso - $totalEgreso;
         
-        $details = [
-            'title' => 'Title: Mail from Real Programmer',
-            'body' => 'Body: This is for testing email using smtp'
-        ];
+        // $details = [
+        //     'title' => 'Title: Mail from Real Programmer',
+        //     'body' => 'Body: This is for testing email using smtp'
+        // ];
 
-        Mail::to('siddharthshukla089@gmail.com')->send(new EnviarBalance($details)); 
+        // Mail::to('siddharthshukla089@gmail.com')->send(new EnviarBalance($details)); 
 
         // Avisos a slack y email 
         if ($total < 25000) {
