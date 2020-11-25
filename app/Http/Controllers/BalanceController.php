@@ -19,9 +19,7 @@ class BalanceController extends Controller
      */
     public function index()
     {
-        // Datos del usuario actual
-        $user = auth()->user();
-         
+        
         // Traigo datos directamente del objeto
         $egresos = Egresos::all();
         $ingresos = Ingresos::all();
@@ -37,16 +35,26 @@ class BalanceController extends Controller
         }
         $total = $totalIngreso - $totalEgreso;
         
-        // $details = [
-        //     'title' => 'Title: Mail from Real Programmer',
-        //     'body' => 'Body: This is for testing email using smtp'
-        // ];
+        // Datos del usuario actual
+        $user = auth()->user();
+ 
+        $to_name =  $user->name;
+        $to_email = $user->email;
+        $data = array('name'=> $user->name, "body" => "Tu balance ha bajado de $25000. ");
 
-        // Mail::to('siddharthshukla089@gmail.com')->send(new EnviarBalance($details)); 
-
+        
         // Avisos a slack y email 
         if ($total < 25000) {
+            // slack
             Log::critical("El balance del usuario con el email '" . $user->email . "' ha bajado de $25000. ");
+        
+            // email
+            Mail::send('mail', $data, function($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)
+                        ->subject('Aviso de TortuMath');
+                $message->from('technologyblog0@gmail.com','TortuMath');
+            });
+
         }
 
         return view('balance.index',compact('ingresos','egresos','totalEgreso','totalIngreso'));

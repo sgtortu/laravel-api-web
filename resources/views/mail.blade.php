@@ -1,3 +1,3 @@
-Hola <strong> s</strong>,
+Hola <strong> {{ $name }}</strong>,
  
-<p>s</p>
+<p>{{ $body }}</p>
