@@ -12,7 +12,8 @@ class ItemsEgresosController extends Controller
     {
         // Me va a ser util desde las vistas para hacer peticiones a la API
         //$this->cliente = new Client(['base_uri'=>'http://localhost:8002/api/']);
-        $this->cliente = new Client(['base_uri'=>'http://localhost/laravel/balance/public/api/']);
+        $apiDireccion = config('api.ubicacion');
+        $this->cliente = new Client(['base_uri'=>$apiDireccion]);
 
     }
    

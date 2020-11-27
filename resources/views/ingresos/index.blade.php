@@ -15,9 +15,10 @@
 <div class="row mb-2 d-flex justify-content-center">
     <div class="col-sm-6 ">
    
-        <a href="{{ url('/ingresos/create') }}" class=" btn btn-primary btn-block ">Agregar ingreso</a>
+        <a href="{{ url('/ingresos/create') }}" class=" btn btn-primary btn-block ">  Agregar ingreso</a>
     </div>
 </div>
+ 
  
  
 @foreach($ingresos-> data as $ingreso)

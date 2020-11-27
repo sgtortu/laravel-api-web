@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'api_ubicacion' => env('API_LOCATION'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

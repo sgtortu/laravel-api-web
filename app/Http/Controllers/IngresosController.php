@@ -10,10 +10,12 @@ class IngresosController extends Controller
 {
  
     public function __construct()
-    {
+    {  
+        
         // Me va a ser util desde las vistas para hacer peticiones a la API
         //$this->cliente = new Client(['base_uri'=>'http://localhost:8002/api/']);
-        $this->cliente = new Client(['base_uri'=>'http://localhost/laravel/balance/public/api/']);
+        $apiDireccion = config('api.ubicacion');
+        $this->cliente = new Client(['base_uri'=>$apiDireccion]);
 
     }
    
@@ -22,8 +24,8 @@ class IngresosController extends Controller
     {  
         // Valor de cliente: "http://localhost/laravel/balance/public/api/ "
         $respuesta = $this->cliente->get('ingresos');
-        $cuerpo = $respuesta->getBody();   
-        return view('ingresos.index',['ingresos' => json_decode($cuerpo)]);   
+        $cuerpo = $respuesta->getBody();     
+        return view('ingresos.index',[ 'ingresos' => json_decode($cuerpo)]);   
     
     }
 
