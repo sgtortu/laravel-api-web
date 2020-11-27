@@ -12,9 +12,9 @@ class IngresoSeeder extends Seeder
     public function run()
     {
         App\Ingresos::create([
-            'nombre' => 'Changa', 
-            'detalle' => 'Le corte el pasto al vecino', 
-            'valor' => '1200', 
+            'nombre' => 'Colegio', 
+            'detalle' => 'Cobre sueldo del colegio', 
+            'valor' => '26500', 
             'categorias_ings_id' => '1', 
         ]);
     }

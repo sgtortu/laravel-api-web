@@ -1,5 +1,6 @@
 <?php
 
+use App\ItemsEgresos;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CategoriasSeeder::class, 
             IngresoSeeder::class, 
             EgresoSeeder::class, 
+            ItemsEgresosSeeder::class
         ]);
     }
 }

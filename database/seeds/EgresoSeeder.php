@@ -12,9 +12,9 @@ class EgresoSeeder extends Seeder
     public function run()
     {
         App\Egresos::create([
-            'nombre' => 'Televisor', 
-            'detalle' => 'Compre un televisor led', 
-            'valor' => '14000', 
+            'nombre' => 'Bicicleta', 
+            'detalle' => 'Restaure mi bicicleta', 
+            'valor' => '11000', 
             'categorias_ings_id' => '2', 
         ]);
     }

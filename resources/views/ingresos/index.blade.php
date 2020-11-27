@@ -14,6 +14,7 @@
 
 <div class="row mb-2 d-flex justify-content-center">
     <div class="col-sm-6 ">
+   
         <a href="{{ url('/ingresos/create') }}" class=" btn btn-primary btn-block ">Agregar ingreso</a>
     </div>
 </div>
@@ -21,8 +22,8 @@
  
 @foreach($ingresos-> data as $ingreso)
 
-<div class="row d-flex justify-content-center">
-    <div class="col-sm-6 ">
+<div  class="row d-flex justify-content-center ">
+    <div class="col-sm-6 " >
         <div class="card mb-2 ">
             <div class="text-center card-header inline bg-dark text-white" >
                 <h5 class=" ">{{$ingreso->nombre}}</h5>
@@ -58,3 +59,4 @@
 </div>
 
 @endsection
+ 

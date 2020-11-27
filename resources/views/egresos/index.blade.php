@@ -27,15 +27,34 @@
                
             </div>
             <div class="card-body">
-                <p class="card-text">Detalle: {{$egreso->detalle}}</p>
-                <p class="card-text">Valor ${{$egreso->valor}}</p>
-                @if (isset($egreso->categorias_ings->nombre))
-                    <p class="card-text">Categoria: {{$egreso->categorias_ings->nombre}}</p>         
-                @elseif ($egreso->categorias_ings_id == 0)       
-                    <p class="card-text">Sin categoria</p>                
-                @else
-                    <p class="card-text">Categoria: No asignada</p>                
-                @endif
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="card-text">Detalle: {{$egreso->detalle}}</p>
+                    <p class="card-text">Valor ${{$egreso->valor}}</p>
+                    @if (isset($egreso->categorias_ings->nombre))
+                        <p class="card-text">Categoria: {{$egreso->categorias_ings->nombre}}</p>         
+                    @elseif ($egreso->categorias_ings_id == 0)       
+                        <p class="card-text">Sin categoria</p>                
+                    @else
+                        <p class="card-text">Categoria: No asignada</p>                
+                    @endif
+                </div>
+                <div class="col-sm-6 ">
+                    <div class="mt-n4 " >
+                        <strong>ITEMS</strong>  
+                        <a class="btn btn-primary btn-sm btn-block"  href="{{ url('itemsegresos/create') }}">
+                            Agregar item
+                        </a>
+                        @foreach($items->data as $item) <br>
+                            @if($item->egreso_id == $egreso->id)
+                                <a  href="{{ url('/itemsegresos/'.$item->id.'/edit') }}">{{ $item->nombreitem }}: {{ $item->cantidaditem }} unidades</a> <br>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+ 
                 <a class="btn btn-success btn-sm btn-block"  href="{{ url('/egresos/'.$egreso->id.'/edit') }}">
                     Editar
                 </a>
@@ -43,10 +62,12 @@
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <button class="btn btn-danger btn-sm btn-block" type="submit" onclick="return confirm('Eliminara el egreso elegido.')">Borrar</button>
-                </form> 
+                </form>
+                 
             </div>
         </div>
     </div>
+
 </div>
 @endforeach
 

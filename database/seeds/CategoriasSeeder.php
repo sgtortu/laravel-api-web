@@ -12,14 +12,14 @@ class CategoriasSeeder extends Seeder
     public function run()
     {
         App\CategoriasIng::create([
-            'nombre' => 'En negro', 
-            'detalle' => 'Ingresos pagos en negro', 
+            'nombre' => 'Sueldos', 
+            'detalle' => 'Ingresos por sueldo', 
             'subcategorias_id' => '1',  
         ]);
 
         App\CategoriasIng::create([
-            'nombre' => 'Tecnologia', 
-            'detalle' => 'Gastos en tecnologia', 
+            'nombre' => 'Deportes', 
+            'detalle' => 'Gastos en entrenamientos', 
             'subcategorias_id' => '2',  
         ]);
     }

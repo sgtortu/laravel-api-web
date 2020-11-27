@@ -15,9 +15,14 @@ class UserSeeder extends Seeder
         //
  
         App\User::create([
-            'name' => 'Santiago',
-            'email' => 'santiago@gmail.com',
-            'password' => bcrypt('1234'), 
+            'name' => 'Santiago Tortu',
+            'email' => 's.tortu@itecriocuarto.org.ar',
+            'password' => bcrypt('42400448'), 
+        ]);
+        App\User::create([
+            'name' => 'Santiago Palacios',
+            'email' => 's.palacios@itecriocuarto.org',
+            'password' => bcrypt('123456'), 
         ]);
     }
 }

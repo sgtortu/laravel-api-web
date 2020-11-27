@@ -43,17 +43,26 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('ingresos.index') }}">{{ __('Ingresos') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('egresos.index') }}">{{ __('Egresos') }}</a>
+ 
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('egresos.index') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ __('Egresos') }}<span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item"  href="{{ route('egresos.index') }}">{{ __('Egresos') }}</a> 
+   
+                                <a class="dropdown-item"  href="{{ route('itemsegresos.index') }}">{{ __('Items egresos') }}</a> 
+                            </div>
                         </li>
+ 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('categoriasing.index') }}">{{ __('Categorias') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('balance.index') }}">{{ __('Balance') }}</a>
                         </li>
-
-
 
 
 

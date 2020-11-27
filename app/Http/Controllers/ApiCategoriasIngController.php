@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\CategoriasIng;
-use App\subcategorias;
+use App\CategoriasIng; 
 use App\Http\Resources\CategoriasIngResource;
 
 class ApiCategoriasIngController extends Controller

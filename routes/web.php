@@ -31,6 +31,7 @@ Auth::routes();
 Route::resource('ingresos', 'IngresosController')->middleware('auth');
 Route::resource('categoriasing', 'CategoriasIngController')->middleware('auth');
 Route::resource('egresos', 'EgresosController')->middleware('auth');
+Route::resource('itemsegresos', 'ItemsEgresosController')->middleware('auth');
 Route::resource('balance', 'BalanceController')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');

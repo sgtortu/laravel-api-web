@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\CategoriasIng;
-use App\subcategorias;
+use App\CategoriasIng; 
 use Illuminate\Http\Request; 
 use GuzzleHttp\Client;
 
@@ -17,6 +16,7 @@ class CategoriasIngController extends Controller
     public function __construct()
     {
         // Me va a ser util desde las vistas para hacer peticiones a la API
+        //$this->cliente = new Client(['base_uri'=>'http://localhost:8002/api/']);
         $this->cliente = new Client(['base_uri'=>'http://localhost/laravel/balance/public/api/']);
     }
 

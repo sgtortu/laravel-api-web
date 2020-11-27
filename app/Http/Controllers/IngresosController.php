@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CategoriasIng;
-use App\Http\Resources\IngresosResource;
 use Illuminate\Http\Request;
-use App\Ingresos;   
 use GuzzleHttp\Client;
 
 class IngresosController extends Controller
@@ -14,16 +12,11 @@ class IngresosController extends Controller
     public function __construct()
     {
         // Me va a ser util desde las vistas para hacer peticiones a la API
+        //$this->cliente = new Client(['base_uri'=>'http://localhost:8002/api/']);
         $this->cliente = new Client(['base_uri'=>'http://localhost/laravel/balance/public/api/']);
-    }
-    
-    public function api_index(){
-
-        $ingreso = Ingresos::with('categorias_ings')->get();          
-        return new IngresosResource($ingreso);
 
     }
-
+   
 
     public function index()
     {  
@@ -70,19 +63,7 @@ class IngresosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-    public function api_store(Request $request){
-        // $ingreso = new Ingresos();         
-        // $ingreso->nombre = $request->nombre;
-        // $ingreso->detalle = $request->detalle;
-        // $ingreso->valor = $request->valor;
-        // $ingreso->categorias_ings_id = $request->categorias_ings_id;
-        // if ($ingreso->save()) {       
-        //     return new IngresosResource($ingreso);
-        // } 
-        return Ingresos::create($request->all());
-    }    
-     
+ 
     public function store(Request $request)
     {  
         // Valor de cliente: "http://localhost/laravel/balance/public/api/ 
@@ -114,12 +95,7 @@ class IngresosController extends Controller
      * @param  \App\Ingresos  $ingresos
      * @return \Illuminate\Http\Response
      */
-    public function api_show($id)
-    {
-        //
-        $ingreso = Ingresos::findOrFail($id);
-        return new IngresosResource($ingreso);
-    }
+  
 
     public function show($id)
     {
@@ -159,23 +135,7 @@ class IngresosController extends Controller
      * @param  \App\Ingresos  $ingresos
      * @return \Illuminate\Http\Response
      */
-    public function api_update(Request $request, Ingresos $ingreso)
-    {
-        // $campos = [
-        //     'nombre' => 'required|string|max:100', 
-        //     'detalle' => 'required|string|max:100', 
-        //     'valor' => 'required|string|max:100', 
-        //     'categorias_ings_id' => 'required|max:100', 
-        // ]; 
-        // $Mensaje = ["required"=>'El :attribute es requerido'];
-        // $this->validate($request,$campos,$Mensaje); 
-        // $datosIngreso=request()->except(['_token','_method']); 
-        // Ingresos::where('id','=',$id)->update($datosIngreso); 
-        // return redirect('ingresos')->with('Mensaje','Ingreso editado correctamente');
-             
-        $ingreso->update($request->all());  
-        return $ingreso;
-    }
+ 
     public function update(Request $request, $id)
     {  
         $campos = [
@@ -203,14 +163,7 @@ class IngresosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function api_destroy($id)
-    { 
-        $ingreso =Ingresos::findOrFail($id);
-        if ($ingreso->delete()) {
-            return new IngresosResource($ingreso);
-        }
-        
-    }
+  
 
     public function destroy($id)
     { 

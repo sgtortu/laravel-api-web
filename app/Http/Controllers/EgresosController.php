@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Egresos;
 use Illuminate\Http\Request;
 use App\CategoriasIng;
+use App\ItemsEgresos;
 use GuzzleHttp\Client;
 
 class EgresosController extends Controller
@@ -17,6 +18,7 @@ class EgresosController extends Controller
     public function __construct()
     {
         // Me va a ser util desde las vistas para hacer peticiones a la API
+        //$this->cliente = new Client(['base_uri'=>'http://localhost:8002/api/']);
         $this->cliente = new Client(['base_uri'=>'http://localhost/laravel/balance/public/api/']);
     }
 
@@ -25,8 +27,12 @@ class EgresosController extends Controller
         //
         $respuesta = $this->cliente->get('egresos');
         $cuerpo = $respuesta->getBody();    
+
+        $respuestaItems = $this->cliente->get('itemsegresos');
+        $cuerpoItems = $respuestaItems->getBody();    
  
-        return view('egresos.index',['egresos' => json_decode($cuerpo)]);   
+        $itemsEgresos = ItemsEgresos::all();  
+        return view('egresos.index',['egresos' => json_decode($cuerpo)],['items' => json_decode($cuerpoItems)],['items' => (json_decode($itemsEgresos))] );   
     }
 
     /**

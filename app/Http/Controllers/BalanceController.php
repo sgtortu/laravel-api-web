@@ -40,13 +40,13 @@ class BalanceController extends Controller
  
         $to_name =  $user->name;
         $to_email = $user->email;
-        $data = array('name'=> $user->name, "body" => "Tu balance ha bajado de $25000. ");
+        $data = array('name'=> $user->name, "body" => "Tu balance ha bajado de $0. ");
 
-        
+        //print_r($total);
         // Avisos a slack y email 
-        if ($total < 25000) {
-            // slack
-            Log::critical("El balance del usuario con el email '" . $user->email . "' ha bajado de $25000. ");
+        if ($total < 0) {
+            //slack
+            Log::critical("El balance del usuario con el email '" . $user->email . "' ha bajado de $0. ");
         
             // email
             Mail::send('mail', $data, function($message) use ($to_name, $to_email) {
