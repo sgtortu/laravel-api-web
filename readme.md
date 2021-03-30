@@ -11,7 +11,7 @@ Personal financial balance management.
 
 ## Technology used
 
-<img src="https://es.wikipedia.org/wiki/Laravel#/media/Archivo:Laravel.svg" width="60" height="60" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/200px-Laravel.svg.png" width="60" height="60" />
 
 
 
